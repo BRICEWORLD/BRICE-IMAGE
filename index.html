@@ -7,36 +7,37 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>
 BRICE IMAGE | AI Images, Wallpapers & Creative Designs
 </title>
 
-
 <meta name="description"
-content="BRICE IMAGE - A collection of AI generated images, wallpapers, profile pictures, tattoo designs and creative digital art.">
-
+content="BRICE IMAGE is a creative image platform featuring AI art, profile pictures, tattoo designs, wallpapers and digital artwork.">
 
 <meta name="keywords"
-content="AI images, wallpapers, profile pictures, tattoo designs, digital art, BRICE IMAGE">
+content="BRICE IMAGE, AI images, AI art, profile pictures, tattoo designs, wallpapers, digital art">
+
+<meta name="author"
+content="BRICE IMAGE">
+
+<meta name="robots"
+content="index, follow">
 
 
 <link rel="stylesheet" href="style.css">
 
 
-<link rel="icon" href="images/favicon.png">
-
-
-<link rel="manifest" href="manifest.json">
+<link rel="icon" href="images/favicon/favicon.png">
 
 
 </head>
 
 
-
 <body>
 
 
+
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -46,32 +47,32 @@ BRICE IMAGE
 </div>
 
 
-<nav>
+
+<nav class="nav">
 
 <a href="index.html">
 Home
 </a>
 
-
 <a href="ai.html">
 AI Images
 </a>
-
 
 <a href="profile.html">
 Profile
 </a>
 
-
 <a href="tattoo.html">
 Tattoo
 </a>
-
 
 <a href="wallpaper.html">
 Wallpaper
 </a>
 
+<a href="branding.html">
+Branding
+</a>
 
 </nav>
 
@@ -82,20 +83,33 @@ Wallpaper
 
 
 
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
 
 <div class="hero-content">
 
 
+<span class="hero-label">
+BRICE CREATIVE
+</span>
+
+
 <h1>
-Create Your World With AI
+Create Your World
+<br>
+With AI
 </h1>
 
 
 <p>
-Premium AI images, creative designs, wallpapers and unique digital artwork.
+Discover unique AI images, creative artwork,
+premium wallpapers and modern digital designs.
 </p>
+
+
+<div class="hero-buttons">
 
 
 <a href="#categories" class="hero-btn">
@@ -103,14 +117,26 @@ Explore Images
 </a>
 
 
+<a href="#featured" class="hero-btn secondary">
+Featured
+</a>
+
+
 </div>
+
+
+</div>
+
 
 
 <div class="hero-image">
 
-<img 
-src="images/hero.jpg"
-alt="BRICE IMAGE AI Artwork">
+
+<img
+src="images/hero/hero-1.webp"
+alt="BRICE IMAGE AI Creative Artwork"
+loading="eager">
+
 
 </div>
 
@@ -123,97 +149,128 @@ alt="BRICE IMAGE AI Artwork">
 
 
 
+<!-- ================= CATEGORIES ================= -->
+
 <section id="categories" class="categories">
 
+
+<div class="section-title">
+
+<span>
+BRICE IMAGE
+</span>
 
 <h2>
 Explore Categories
 </h2>
+
+<p>
+Find the perfect image for your style.
+</p>
+
+</div>
 
 
 
 <div class="category-grid">
 
 
-<div class="category-card">
+
+<a href="ai.html" class="category-card">
+
+<div class="category-icon">
+🤖
+</div>
 
 <h3>
-🤖 AI Images
+AI Images
 </h3>
 
 <p>
-Amazing artificial intelligence creations
+Creative images generated with artificial intelligence.
 </p>
 
+</a>
+
+
+
+
+<a href="profile.html" class="category-card">
+
+<div class="category-icon">
+👤
 </div>
 
-
-
-
-<div class="category-card">
-
 <h3>
-👤 Profile Pictures
+Profile Pictures
 </h3>
 
 <p>
-Unique profile images for everyone
+Unique profile pictures for social media and personal use.
 </p>
 
+</a>
+
+
+
+
+<a href="tattoo.html" class="category-card">
+
+<div class="category-icon">
+🖤
 </div>
 
-
-
-
-
-<div class="category-card">
-
 <h3>
-🖤 Tattoo Design
+Tattoo Design
 </h3>
 
 <p>
-Modern tattoo ideas and artwork
+Modern tattoo ideas and creative tattoo artwork.
 </p>
 
+</a>
+
+
+
+
+<a href="wallpaper.html" class="category-card">
+
+<div class="category-icon">
+🌌
 </div>
 
-
-
-
-
-<div class="category-card">
-
 <h3>
-🌌 Wallpapers
+Wallpapers
 </h3>
 
 <p>
-4K wallpapers for mobile and desktop
+Beautiful wallpapers for mobile and desktop screens.
 </p>
 
+</a>
+
+
+
+
+<a href="branding.html" class="category-card">
+
+<div class="category-icon">
+⭐
 </div>
 
-
-
-
-
-<div class="category-card">
-
 <h3>
-⭐ Branding
+Branding
 </h3>
 
 <p>
-Logo and creative brand designs
+Creative logos, branding concepts and digital designs.
 </p>
 
-</div>
+</a>
 
 
 
 </div>
-
 
 </section>
 
@@ -223,14 +280,26 @@ Logo and creative brand designs
 
 
 
+<!-- ================= FEATURED ================= -->
+
+<section id="featured" class="featured">
 
 
-<section class="featured">
+<div class="section-title">
 
+<span>
+HANDPICKED
+</span>
 
 <h2>
 Featured Images
 </h2>
+
+<p>
+A selection of creative images from BRICE IMAGE.
+</p>
+
+</div>
 
 
 
@@ -238,36 +307,62 @@ Featured Images
 
 
 
-<div class="image-card">
+<a href="ai.html" class="image-card">
 
-<img 
-src="images/ai/ai-1.jpg"
-alt="AI Image">
+<img
+src="images/ai/ai-1.webp"
+alt="BRICE IMAGE AI Artwork"
+loading="lazy">
 
-</div>
+<div class="image-overlay">
 
-
-
-
-<div class="image-card">
-
-<img 
-src="images/profile/profile-1.jpg"
-alt="Profile Image">
+<span>
+AI Images
+</span>
 
 </div>
 
+</a>
 
 
 
-<div class="image-card">
 
-<img 
-src="images/wallpaper/wallpaper-1.jpg"
-alt="Wallpaper">
+<a href="profile.html" class="image-card">
+
+<img
+src="images/profile/profile-1.webp"
+alt="BRICE IMAGE Profile Picture"
+loading="lazy">
+
+<div class="image-overlay">
+
+<span>
+Profile
+</span>
 
 </div>
 
+</a>
+
+
+
+
+<a href="wallpaper.html" class="image-card">
+
+<img
+src="images/wallpaper/wallpaper-1.webp"
+alt="BRICE IMAGE Wallpaper"
+loading="lazy">
+
+<div class="image-overlay">
+
+<span>
+Wallpaper
+</span>
+
+</div>
+
+</a>
 
 
 
@@ -282,19 +377,38 @@ alt="Wallpaper">
 
 
 
+<!-- ================= ABOUT ================= -->
 
 <section class="about">
 
 
+<div class="about-content">
+
+
+<span>
+ABOUT BRICE IMAGE
+</span>
+
+
 <h2>
-About BRICE IMAGE
+Images Made For Your World
 </h2>
 
 
 <p>
-BRICE IMAGE is a creative platform for discovering unique AI generated images,
-digital artwork, wallpapers and modern designs.
+BRICE IMAGE is a creative digital platform focused on
+AI-generated images, profile pictures, tattoo designs,
+wallpapers and modern digital artwork.
 </p>
+
+
+<p>
+Our goal is to create a growing collection of unique,
+high-quality visuals that anyone can discover and enjoy.
+</p>
+
+
+</div>
 
 
 </section>
@@ -305,20 +419,66 @@ digital artwork, wallpapers and modern designs.
 
 
 
-<footer>
+<!-- ================= FOOTER ================= -->
 
+<footer class="footer">
+
+
+<div class="footer-brand">
+
+<h2>
+BRICE IMAGE
+</h2>
 
 <p>
-© 2026 BRICE IMAGE
+AI Images • Creative Art • Digital Designs
 </p>
 
+</div>
+
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="ai.html">
+AI Images
+</a>
+
+<a href="profile.html">
+Profile
+</a>
+
+<a href="tattoo.html">
+Tattoo
+</a>
+
+<a href="wallpaper.html">
+Wallpaper
+</a>
+
+<a href="branding.html">
+Branding
+</a>
+
+</div>
+
+
+
+<div class="footer-bottom">
 
 <p>
-Creative AI Images & Digital Art
+© 2026 BRICE IMAGE. All rights reserved.
 </p>
+
+</div>
 
 
 </footer>
+
 
 
 
