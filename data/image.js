@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const image = IMAGE_DATA[imageId];
+    const image = window.IMAGE_DATA?.[imageId];
 
     if (!image) {
         showImageError();
