@@ -26,3 +26,11 @@ const IMAGE_DATA = {
     }
 
 };
+
+
+/*
+   Make image data available
+   to all BRICE IMAGE scripts
+*/
+
+window.IMAGE_DATA = IMAGE_DATA;
