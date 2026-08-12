@@ -1637,3 +1637,71 @@ button:focus-visible {
     }
 
 }
+
+/* =========================================================
+   BRAND DIRECTION
+   ========================================================= */
+
+.logo {
+    direction: ltr;
+    unicode-bidi: isolate;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+#about .section-title {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 45px 30px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139, 92, 246, 0.06),
+            rgba(15, 13, 22, 0.8)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+#about .section-title h2 {
+    margin-bottom: 18px;
+}
+
+#about .section-title p {
+    max-width: 760px;
+    margin: auto;
+
+    color: var(--text-soft);
+
+    line-height: 2;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   ABOUT - MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    #about .section-title {
+        padding: 32px 22px;
+        border-radius: 20px;
+    }
+
+    #about .section-title p {
+        font-size: 14px;
+        line-height: 2;
+    }
+
+}
