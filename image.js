@@ -160,9 +160,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const formatElement =
-        document.querySelector(
-            ".image-info-item strong"
-        );
+    document.getElementById("info-format");
+        
 
 
     if (formatElement) {
