@@ -1,139 +1,55 @@
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BRICE IMAGE</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
 
 
-const params =
-new URLSearchParams(
-window.location.search
-);
+<body>
 
 
-const categoryId =
-params.get("id");
+<header>
+
+<h1 id="category-title">
+BRICE IMAGE
+</h1>
 
 
-const category =
-window.CATEGORY_DATA?.[categoryId];
-
-
-if(!category){
-
-document.getElementById(
-"category-title"
-).textContent =
-"دسته پیدا نشد";
-
-return;
-
-}
-
-
-
-/*
- TITLE
-*/
-
-document.title =
-`${category.name} | BRICE IMAGE`;
-
-
-
-document.getElementById(
-"category-title"
-).textContent =
-category.name;
-
-
-
-document.getElementById(
-"category-description"
-).textContent =
-category.description;
-
-
-
-/*
- LOAD IMAGES
-*/
-
-
-const grid =
-document.getElementById(
-"category-grid"
-);
-
-
-
-const images =
-window.BRICE
-?
-window.BRICE.getByCategory(categoryId)
-:
-Object.values(
-window.IMAGE_DATA || {}
-).filter(
-image =>
-image.category === categoryId
-);
-
-
-
-if(images.length === 0){
-
-
-grid.innerHTML =
-`
-<p>
-هنوز تصویری در این دسته اضافه نشده است.
+<p id="category-description">
+مجموعه تصاویر
 </p>
-`;
 
-return;
 
-}
+</header>
 
 
 
-images.forEach(image=>{
+<main>
 
+<div id="category-grid" class="image-grid">
 
-const card =
-document.createElement("a");
+</div>
 
-
-card.href =
-`image.html?id=${image.id}`;
-
-
-card.className =
-"image-card";
+</main>
 
 
 
-card.innerHTML =
-`
+<script src="data/categories.js"></script>
 
-<img 
-src="${image.image}"
-alt="${image.alt || image.title}"
-loading="lazy"
->
+<script src="data/images.js"></script>
+
+<script src="category.js"></script>
 
 
-<h3>
-${image.title}
-</h3>
+</body>
 
-`;
-
-
-
-grid.appendChild(card);
-
-
-});
-
-
-
-});
+</html>
