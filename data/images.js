@@ -18,7 +18,7 @@ const IMAGE_DATA = {
             "یک تصویر خلاقانه تولیدشده با هوش مصنوعی از مجموعه BRICE IMAGE.",
 
         image:
-            "images/ai/ai-001.webp",
+    "images/ai/ai-001.jpg",
 
         alt:
             "تصویر خلاقانه تولیدشده با هوش مصنوعی",
