@@ -1,130 +1,148 @@
-document.addEventListener(
-"DOMContentLoaded",
-()=>{
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       PAGE LOAD
+    ===================================================== */
+
+    document.body.classList.add("page-loaded");
 
 
-const params =
-new URLSearchParams(
-window.location.search
-);
+    /* =====================================================
+       GET CATEGORY ID
+    ===================================================== */
+
+    const params = new URLSearchParams(
+        window.location.search
+    );
+
+    const categoryId = params.get("id");
 
 
-const categoryId =
-params.get("id");
+    /* =====================================================
+       GET CATEGORY
+    ===================================================== */
+
+    const category =
+        window.CATEGORY_DATA?.[categoryId];
 
 
-const category =
-window.CATEGORY_DATA?.[categoryId];
+    const title =
+        document.getElementById("category-title");
+
+    const description =
+        document.getElementById("category-description");
+
+    const grid =
+        document.getElementById("category-grid");
 
 
-if(!category){
+    /* =====================================================
+       CATEGORY NOT FOUND
+    ===================================================== */
 
-document.getElementById(
-"category-title"
-).textContent =
-"دسته پیدا نشد";
+    if (!category) {
 
-return;
+        if (title) {
+            title.textContent = "دسته پیدا نشد";
+        }
 
-}
+        if (description) {
+            description.textContent =
+                "دسته مورد نظر وجود ندارد.";
+        }
 
-
-/*
-TITLE
-*/
-
-document.title =
-`${category.name} | BRICE IMAGE`;
-
-
-document.getElementById(
-"category-title"
-).textContent =
-category.name;
+        return;
+    }
 
 
-document.getElementById(
-"category-description"
-).textContent =
-category.description;
+    /* =====================================================
+       TITLE
+    ===================================================== */
+
+    document.title =
+        `${category.name} | BRICE IMAGE`;
 
 
-
-/*
-LOAD IMAGES
-*/
-
-
-const grid =
-document.getElementById(
-"category-grid"
-);
+    if (title) {
+        title.textContent =
+            category.name;
+    }
 
 
-
-const images =
-Object.values(
-window.IMAGE_DATA || {}
-).filter(
-image =>
-image.category === categoryId
-);
+    if (description) {
+        description.textContent =
+            category.description || "";
+    }
 
 
+    /* =====================================================
+       LOAD IMAGES
+    ===================================================== */
 
-if(images.length === 0){
-
-grid.innerHTML =
-`
-<p>
-هنوز تصویری در این دسته اضافه نشده است.
-</p>
-`;
-
-return;
-
-}
+    const images =
+        Object.values(
+            window.IMAGE_DATA || {}
+        ).filter(
+            image =>
+                image.category === categoryId
+        );
 
 
+    /* =====================================================
+       NO IMAGES
+    ===================================================== */
 
-images.forEach(image=>{
+    if (images.length === 0) {
 
+        if (grid) {
 
-const card =
-document.createElement("a");
+            grid.innerHTML = `
+                <p>
+                    هنوز تصویری در این دسته اضافه نشده است.
+                </p>
+            `;
 
+        }
 
-card.href =
-`image.html?id=${image.id}`;
-
-
-card.className =
-"image-card";
-
-
-
-card.innerHTML =
-`
-
-<img
-src="${image.image}"
-alt="${image.alt || image.title}"
-loading="lazy"
->
+        return;
+    }
 
 
-<h3>
-${image.title}
-</h3>
+    /* =====================================================
+       CREATE IMAGE CARDS
+    ===================================================== */
 
-`;
+    images.forEach(image => {
+
+        const card =
+            document.createElement("a");
 
 
+        card.href =
+            `image.html?id=${image.id}`;
 
-grid.appendChild(card);
+
+        card.className =
+            "image-card";
 
 
-});
+        card.innerHTML = `
+            
+            <img
+                src="${image.image}"
+                alt="${image.alt || image.title}"
+                loading="lazy"
+            >
 
-document.body.classList.add("page-loaded");
+            <h3>
+                ${image.title}
+            </h3>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
 });
