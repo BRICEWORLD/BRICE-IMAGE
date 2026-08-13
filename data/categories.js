@@ -96,23 +96,26 @@ const CATEGORY_DATA = {
     },
 
 
-    creative: {
+    other: {
 
-        id: "creative",
+    id: "other",
 
-        name:
-        "تصاویر خلاقانه",
+    name:
+    "تصاویر خلاقانه",
 
-        title:
-        "Creative Images",
+    title:
+    "Creative Images",
 
-        description:
-        "مجموعه تصاویر خاص و خلاقانه.",
+    description:
+    "مجموعه تصاویر خاص و خلاقانه.",
 
-        image:
-        "images/creative/creative-001.webp"
+    image:
+    "images/other/other-001.webp",
 
-    }
+    count:
+    20
+
+}
 
 
 };
