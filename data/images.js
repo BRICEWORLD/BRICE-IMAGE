@@ -23,7 +23,7 @@ const IMAGE_DATA = {
         alt:
             "تصویر خلاقانه تولیدشده با هوش مصنوعی",
 
-        format: "WEBP",
+        format: "jpg",
 
         free: true
 
