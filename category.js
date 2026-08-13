@@ -63,10 +63,6 @@ document.getElementById(
 
 
 const images =
-window.BRICE
-?
-window.BRICE.getByCategory(categoryId)
-:
 Object.values(
 window.IMAGE_DATA || {}
 ).filter(
