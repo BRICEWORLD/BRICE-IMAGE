@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
        GET IMAGE DATA
     ===================================================== */
 
-    const image =
-        window.BRICE?.getImage(imageId);
+    const image = window.IMAGE_DATA?.[imageId];
 
 
     if (!image) {
