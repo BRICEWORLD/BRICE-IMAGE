@@ -126,5 +126,5 @@ grid.appendChild(card);
 
 });
 
-
+document.body.classList.add("page-loaded");
 });
