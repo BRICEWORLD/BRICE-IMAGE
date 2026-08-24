@@ -76,18 +76,23 @@ html {
 body {
     min-height: 100vh;
 
-    background:
-        radial-gradient(
-            circle at 50% -12%,
-            rgba(139, 92, 246, 0.105),
-            transparent 34%
-        ),
-        linear-gradient(
-            180deg,
-            #08070d 0%,
-            #090811 50%,
-            #07060b 100%
-        );
+   body{
+
+background:
+
+radial-gradient(
+circle at 50% 20%,
+rgba(168,85,247,.10),
+transparent 38%
+),
+
+linear-gradient(
+180deg,
+#020207,
+#05040A,
+#000
+);
+
 
     color: var(--text);
 
@@ -234,10 +239,16 @@ img {
 }
 
 
-.logo span {
-    color: var(--purple-light);
-}
 
+.logo span{
+
+color:#A78BFA;
+
+text-shadow:
+
+0 0 15px rgba(168,85,247,.5);
+
+}
 
 /* =========================================================
    NAVIGATION
@@ -601,34 +612,28 @@ section {
 }
 
 
-.category-card {
 
-    position: relative;
+.category-card{
 
-    min-height: 250px;
+background:
 
-    overflow: hidden;
+linear-gradient(
+145deg,
+rgba(168,85,247,.12),
+rgba(10,10,15,.95)
+);
 
-    background:
-        var(--card);
 
-    border:
-        1px solid var(--border);
+border:
 
-    border-radius:
-        var(--radius);
+1px solid rgba(168,85,247,.45);
 
-    box-shadow:
-        var(--shadow);
 
-    isolation: isolate;
+box-shadow:
 
-    transition:
-        transform var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition);
+0 0 35px rgba(168,85,247,.12);
+
 }
-
 
 .category-card::after {
 
@@ -739,45 +744,29 @@ section {
 }
 
 
-.image-card {
+.image-card{
 
-    position: relative;
+border:
+1px solid rgba(168,85,247,.25);
 
-    overflow: hidden;
+box-shadow:
+0 20px 50px rgba(0,0,0,.55),
+inset 0 0 30px rgba(168,85,247,.05);
 
-    background:
-        var(--card);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        var(--radius);
-
-    box-shadow:
-        var(--shadow);
-
-    cursor: pointer;
-
-    isolation: isolate;
-
-    transition:
-        transform var(--transition),
-        border-color var(--transition),
-        box-shadow var(--transition);
 }
 
 
-.image-card:hover {
+.image-card:hover{
 
-    transform:
-        translateY(-5px);
+border-color:#A78BFA;
 
-    border-color:
-        var(--border-hover);
+box-shadow:
 
-    box-shadow:
-        var(--shadow-hover);
+0 25px 70px rgba(168,85,247,.25);
+
+transform:
+translateY(-8px);
+
 }
 
 
