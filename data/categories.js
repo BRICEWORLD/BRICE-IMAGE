@@ -5,7 +5,7 @@ const CATEGORY_DATA = {
         name: "تصاویر هوش مصنوعی",
         title: "AI Images",
         description: "تصاویر خلاقانه تولیدشده با هوش مصنوعی.",
-        image: "images/ai/ai-001.webp"
+        image: "images/ai/ai-001.jpg"
     },
 
 
