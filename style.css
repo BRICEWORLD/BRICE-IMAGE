@@ -2509,3 +2509,18 @@ button:focus-visible {
     }
 
 }
+
+
+/* =========================================================
+   FIX — PREVENT CONTENT FROM FADING / DISAPPEARING
+   ========================================================= */
+
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: none;
+}
