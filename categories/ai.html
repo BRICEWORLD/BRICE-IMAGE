@@ -211,23 +211,42 @@ rel="stylesheet">
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const grid = document.getElementById("ai-grid");
+    const grid =
+        document.getElementById("ai-grid");
+
 
     if (!grid) return;
 
 
-    const REPO = "BRICEWORLD/BRICE-IMAGE";
-    const BRANCH = "main";
-    const FOLDER = "images/ai";
+    const REPO =
+        "BRICEWORLD/BRICE-IMAGE";
+
+
+    const BRANCH =
+        "main";
+
+
+    const FOLDER =
+        "images/ai";
 
 
     const API_URL =
         `https://api.github.com/repos/${REPO}/contents/${FOLDER}?ref=${BRANCH}`;
 
 
+    const IMAGE_BASE =
+        "https://briceworld.github.io/BRICE-IMAGE/";
+
+
     try {
 
-        const response = await fetch(API_URL);
+
+        /* =================================================
+           GET FILES
+        ================================================= */
+
+        const response =
+            await fetch(API_URL);
 
 
         if (!response.ok) {
@@ -239,31 +258,46 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        const files = await response.json();
+        const files =
+            await response.json();
 
 
-        const images = files
-            .filter(file => {
 
-                return (
-                    file.type === "file" &&
-                    /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
-                );
+        /* =================================================
+           FILTER + SORT
+        ================================================= */
 
-            })
-            .sort((a, b) => {
+        const images =
+            files
 
-                return a.name.localeCompare(
-                    b.name,
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
-                );
+                .filter(file => {
 
-            });
+                    return (
+                        file.type === "file" &&
+                        /\.(jpg|jpeg|png|webp|gif)$/i
+                        .test(file.name)
+                    );
 
+                })
+
+                .sort((a, b) => {
+
+                    return a.name.localeCompare(
+                        b.name,
+                        undefined,
+                        {
+                            numeric: true,
+                            sensitivity: "base"
+                        }
+                    );
+
+                });
+
+
+
+        /* =================================================
+           EMPTY
+        ================================================= */
 
         if (images.length === 0) {
 
@@ -278,10 +312,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
+
         grid.innerHTML = "";
 
 
+
+        /* =================================================
+           CREATE CARDS
+        ================================================= */
+
         images.forEach(file => {
+
+
+            /* IMAGE ID */
 
             const imageId =
                 file.path
@@ -289,35 +332,49 @@ document.addEventListener("DOMContentLoaded", async () => {
                     .replace(/\.[^/.]+$/, "");
 
 
+
+            /* IMAGE URL */
+
             const imageUrl =
-                `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
+                IMAGE_BASE + file.path;
 
-             const title = "تصاویر هوش مصنوعی";
-            
 
+
+            /* TITLE */
+
+            const title =
+                "تصاویر هوش مصنوعی";
+
+
+
+            /* CARD */
 
             const card =
                 document.createElement("a");
 
 
-            card.className = "image-card";
+            card.className =
+                "image-card";
 
 
             card.href =
                 `../image.html?id=${encodeURIComponent(imageId)}`;
 
 
+
+            /* CARD CONTENT */
+
             card.innerHTML = `
 
                 <img
                     src="${imageUrl}"
-                    alt="تصویر هوش مصنوعی شماره ${imageNumber} | BRICE IMAGE"
+                    alt="${title} | BRICE IMAGE"
                     loading="lazy"
                     decoding="async"
                 >
 
                 <h3>
-                    تصویر هوش مصنوعی ${imageNumber}
+                    ${title}
                 </h3>
 
             `;
@@ -329,6 +386,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     } catch (error) {
+
 
         console.error(
             "BRICE IMAGE AI ERROR:",
