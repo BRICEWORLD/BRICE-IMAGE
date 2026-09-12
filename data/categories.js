@@ -10,12 +10,14 @@ const CATEGORY_DATA = {
 
 
     profile: {
-        id: "profile",
-        name: "تصاویر پروفایل",
-        title: "Profile Images",
-        description: "تصاویر خاص برای پروفایل و آواتار.",
-        image: "images/profile/girls/girl-001.jpg"
-    },
+    id: "profile",
+    name: "تصاویر پروفایل",
+    title: "Profile Images",
+    description: "تصاویر خاص برای پروفایل دخترانه و پسرانه.",
+    image: "images/profile/girls/girl-001.jpg",
+    girlsPath: "images/profile/girls/",
+    boysPath: "images/profile/boys/"
+},
 
 
     tattoo: {
@@ -33,6 +35,24 @@ const CATEGORY_DATA = {
         title: "Wallpapers",
         description: "والپیپرهای باکیفیت برای صفحه نمایش.",
         image: "images/wallpaper/wallpaper-001.jpg"
+    },
+
+
+    branding: {
+        id: "branding",
+        name: "برندسازی",
+        title: "Branding",
+        description: "آثار گرافیکی، طراحی‌های خلاقانه و محتوای برندسازی.",
+        image: "images/branding/branding-001.jpg"
+    },
+
+
+    hero: {
+        id: "hero",
+        name: "تصاویر خلاقانه",
+        title: "Creative Images",
+        description: "مجموعه‌ای از تصاویر خاص، متفاوت و خلاقانه.",
+        image: "images/hero/hero-001.jpg"
     }
 
 };
