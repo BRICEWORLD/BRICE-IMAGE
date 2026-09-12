@@ -292,33 +292,32 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imageUrl =
                 `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
 
-            const title = "طرح تتو"; 
-            
+            const title = "طرح تتو";
 
 
-            const card = document.createElement("a");
+const card = document.createElement("a");
 
-            card.className = "image-card";
-
-
-            card.href =
-                `../image.html?id=${encodeURIComponent(imageId)}`;
+card.className = "image-card";
 
 
-            card.innerHTML = `
+card.href =
+    `../image.html?id=${encodeURIComponent(imageId)}`;
 
-                <img
-                    src="${imageUrl}"
-                    alt="طرح تاتو ${imageTitle} | BRICE IMAGE"
-                    loading="lazy"
-                    decoding="async"
-                >
 
-                <h3>
-                    ${imageTitle}
-                </h3>
+card.innerHTML = `
 
-            `;
+    <img
+        src="${imageUrl}"
+        alt="${title} | BRICE IMAGE"
+        loading="lazy"
+        decoding="async"
+    >
+
+    <h3>
+        ${title}
+    </h3>
+
+`;
 
 
             grid.appendChild(card);
