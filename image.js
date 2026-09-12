@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     if (!imageId) {
+
         showImageError();
+
         return;
     }
 
@@ -29,17 +31,153 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     /* =====================================================
+       CATEGORY NAMES
+    ===================================================== */
+
+    const CATEGORY_NAMES = {
+
+        ai:
+            "تصاویر هوش مصنوعی",
+
+        branding:
+            "برندسازی",
+
+        hero:
+            "تصاویر خلاقانه",
+
+        profile:
+            "تصاویر پروفایل",
+
+        tattoo:
+            "طرح‌های تتو",
+
+        wallpaper:
+            "والپیپر"
+
+    };
+
+
+    /* =====================================================
+       GET GITHUB FOLDER
+    ===================================================== */
+
+    async function getFolder(path) {
+
+        const url =
+            `https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}`;
+
+        const response =
+            await fetch(url);
+
+        if (!response.ok) {
+
+            throw new Error(
+                `GitHub API Error: ${response.status}`
+            );
+
+        }
+
+        return await response.json();
+
+    }
+
+
+    /* =====================================================
+       CHECK IMAGE
+    ===================================================== */
+
+    function isImage(file) {
+
+        return (
+            file.type === "file" &&
+            /\.(jpg|jpeg|png|webp|gif)$/i.test(
+                file.name
+            )
+        );
+
+    }
+
+
+    /* =====================================================
+       CREATE IMAGE OBJECT
+    ===================================================== */
+
+    function createImageData(
+        file,
+        categoryId
+    ) {
+
+        const title =
+            file.name
+                .replace(/\.[^/.]+$/, "")
+                .replace(/[-_]/g, " ");
+
+
+        const imageUrl =
+            `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
+
+
+        const format =
+            file.name
+                .split(".")
+                .pop()
+                .toUpperCase();
+
+
+        return {
+
+            id:
+                file.path
+                    .replace(/\//g, "-")
+                    .replace(/\.[^/.]+$/, ""),
+
+            category:
+                categoryId,
+
+            categoryName:
+                CATEGORY_NAMES[categoryId] ||
+                "BRICE IMAGE",
+
+            title:
+                title,
+
+            description:
+                `تصویری از مجموعه ${
+                    CATEGORY_NAMES[categoryId] ||
+                    "BRICE IMAGE"
+                } در BRICE IMAGE.`,
+
+            image:
+                imageUrl,
+
+            alt:
+                `${title} | BRICE IMAGE`,
+
+            format:
+                format,
+
+            free:
+                true
+
+        };
+
+    }
+
+
+    /* =====================================================
        FIND IMAGE
     ===================================================== */
 
     async function findImage() {
 
         const categories = [
+
             "ai",
             "branding",
             "hero",
             "tattoo",
             "wallpaper"
+
         ];
 
 
@@ -49,37 +187,51 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         for (const category of categories) {
 
-            const url =
-                `https://api.github.com/repos/${REPO}/contents/images/${category}?ref=${BRANCH}`;
+            try {
 
-            const response =
-                await fetch(url);
+                const files =
+                    await getFolder(
+                        `images/${category}`
+                    );
 
-            if (!response.ok) {
-                continue;
+
+                const file =
+                    files.find(item => {
+
+                        if (!isImage(item)) {
+
+                            return false;
+
+                        }
+
+
+                        const id =
+                            item.path
+                                .replace(/\//g, "-")
+                                .replace(/\.[^/.]+$/, "");
+
+
+                        return id === imageId;
+
+                    });
+
+
+                if (file) {
+
+                    return createImageData(
+                        file,
+                        category
+                    );
+
+                }
+
             }
 
-            const files =
-                await response.json();
+            catch (error) {
 
-
-            const file =
-                files.find(item => {
-
-                    const generatedId =
-                        item.path
-                            .replace(/\//g, "-")
-                            .replace(/\.[^/.]+$/, "");
-
-                    return generatedId === imageId;
-                });
-
-
-            if (file) {
-
-                return createImageData(
-                    file,
-                    category
+                console.warn(
+                    `Could not load ${category}`,
+                    error
                 );
 
             }
@@ -88,48 +240,59 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
         /* ---------------------------------------------
-           PROFILE
+           PROFILE GIRLS / BOYS
         --------------------------------------------- */
 
-        const profileFolders = [
+        for (const folder of [
             "girls",
             "boys"
-        ];
+        ]) {
+
+            try {
+
+                const files =
+                    await getFolder(
+                        `images/profile/${folder}`
+                    );
 
 
-        for (const folder of profileFolders) {
+                const file =
+                    files.find(item => {
 
-            const url =
-                `https://api.github.com/repos/${REPO}/contents/images/profile/${folder}?ref=${BRANCH}`;
+                        if (!isImage(item)) {
 
-            const response =
-                await fetch(url);
+                            return false;
 
-            if (!response.ok) {
-                continue;
+                        }
+
+
+                        const id =
+                            item.path
+                                .replace(/\//g, "-")
+                                .replace(/\.[^/.]+$/, "");
+
+
+                        return id === imageId;
+
+                    });
+
+
+                if (file) {
+
+                    return createImageData(
+                        file,
+                        "profile"
+                    );
+
+                }
+
             }
 
-            const files =
-                await response.json();
+            catch (error) {
 
-
-            const file =
-                files.find(item => {
-
-                    const generatedId =
-                        item.path
-                            .replace(/\//g, "-")
-                            .replace(/\.[^/.]+$/, "");
-
-                    return generatedId === imageId;
-                });
-
-
-            if (file) {
-
-                return createImageData(
-                    file,
-                    "profile"
+                console.warn(
+                    `Could not load profile/${folder}`,
+                    error
                 );
 
             }
@@ -143,87 +306,197 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     /* =====================================================
-       CREATE IMAGE DATA
+       LOAD RELATED IMAGES
     ===================================================== */
 
-    function createImageData(
-        file,
-        categoryId
+    async function loadRelatedImages(
+        currentImage
     ) {
 
-        const categoryNames = {
-
-            ai:
-                "تصاویر هوش مصنوعی",
-
-            branding:
-                "برندسازی",
-
-            hero:
-                "تصاویر خلاقانه",
-
-            profile:
-                "تصاویر پروفایل",
-
-            tattoo:
-                "طرح‌های تتو",
-
-            wallpaper:
-                "والپیپر"
-
-        };
+        const grid =
+            document.getElementById(
+                "related-grid"
+            );
 
 
-        const categoryName =
-            categoryNames[categoryId] ||
-            "BRICE IMAGE";
+        if (!grid) {
+
+            return;
+
+        }
 
 
-        const title =
-            file.name
-                .replace(/\.[^/.]+$/, "")
-                .replace(/[-_]/g, " ");
+        try {
+
+            let files = [];
 
 
-        const imageUrl =
-            `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
+            /* -----------------------------------------
+               PROFILE
+            ----------------------------------------- */
+
+            if (
+                currentImage.category ===
+                "profile"
+            ) {
+
+                const girls =
+                    await getFolder(
+                        "images/profile/girls"
+                    );
 
 
-        return {
+                const boys =
+                    await getFolder(
+                        "images/profile/boys"
+                    );
 
-            id: imageId,
 
-            category:
-                categoryId,
+                files = [
+                    ...girls,
+                    ...boys
+                ];
 
-            categoryName:
-                categoryName,
+            }
 
-            title:
-                title,
 
-            description:
-                `تصویری از مجموعه ${categoryName} در BRICE IMAGE.`,
+            /* -----------------------------------------
+               OTHER CATEGORIES
+            ----------------------------------------- */
 
-            image:
-                imageUrl,
+            else {
 
-            alt:
-                `${title} | BRICE IMAGE`,
+                files =
+                    await getFolder(
+                        `images/${currentImage.category}`
+                    );
 
-            format:
-                file.name
-                    .split(".")
-                    .pop()
-                    .toUpperCase()
+            }
 
-        };
+
+            /* -----------------------------------------
+               FILTER
+            ----------------------------------------- */
+
+            const images =
+                files
+                    .filter(isImage)
+                    .map(file =>
+                        createImageData(
+                            file,
+                            currentImage.category
+                        )
+                    )
+                    .filter(image =>
+                        image.id !== currentImage.id
+                    )
+                    .slice(0, 6);
+
+
+            /* -----------------------------------------
+               NO RELATED
+            ----------------------------------------- */
+
+            if (!images.length) {
+
+                grid.innerHTML = `
+
+                    <p class="no-related">
+
+                        تصاویر بیشتری از این مجموعه
+                        به‌زودی اضافه می‌شود.
+
+                    </p>
+
+                `;
+
+                return;
+
+            }
+
+
+            /* -----------------------------------------
+               CLEAR
+            ----------------------------------------- */
+
+            grid.innerHTML = "";
+
+
+            /* -----------------------------------------
+               CREATE CARDS
+            ----------------------------------------- */
+
+            images.forEach(image => {
+
+                const card =
+                    document.createElement("a");
+
+
+                card.className =
+                    "image-card";
+
+
+                card.href =
+                    `image.html?id=${encodeURIComponent(
+                        image.id
+                    )}`;
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="${image.image}"
+                        alt="${image.alt}"
+                        loading="lazy"
+                        decoding="async"
+                    >
+
+                    <div class="related-card-info">
+
+                        <h3>
+                            ${image.title}
+                        </h3>
+
+                        <span>
+                            ${image.categoryName}
+                        </span>
+
+                    </div>
+
+                `;
+
+
+                grid.appendChild(card);
+
+            });
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Related Images Error:",
+                error
+            );
+
+
+            grid.innerHTML = `
+
+                <p class="no-related">
+
+                    امکان بارگذاری تصاویر مشابه وجود ندارد.
+
+                </p>
+
+            `;
+
+        }
 
     }
 
 
     /* =====================================================
-       LOAD
+       LOAD MAIN IMAGE
     ===================================================== */
 
     try {
@@ -237,20 +510,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             showImageError();
 
             return;
+
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            PAGE TITLE
-        ================================================= */
+        --------------------------------------------- */
 
         document.title =
             `${image.title} | BRICE IMAGE`;
 
 
-        /* =================================================
+        /* ---------------------------------------------
            CATEGORY
-        ================================================= */
+        --------------------------------------------- */
 
         const category =
             document.getElementById(
@@ -266,9 +540,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            TITLE
-        ================================================= */
+        --------------------------------------------- */
 
         const title =
             document.getElementById(
@@ -284,9 +558,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            DESCRIPTION
-        ================================================= */
+        --------------------------------------------- */
 
         const description =
             document.getElementById(
@@ -302,9 +576,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            MAIN IMAGE
-        ================================================= */
+        --------------------------------------------- */
 
         const mainImage =
             document.getElementById(
@@ -329,9 +603,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            CATEGORY INFO
-        ================================================= */
+        --------------------------------------------- */
 
         const infoCategory =
             document.getElementById(
@@ -347,9 +621,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            FORMAT
-        ================================================= */
+        --------------------------------------------- */
 
         const formatElement =
             document.getElementById(
@@ -365,9 +639,29 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
+           FREE STATUS
+        --------------------------------------------- */
+
+        const statusElement =
+            document.querySelector(
+                ".image-info-item:nth-child(3) strong"
+            );
+
+
+        if (statusElement) {
+
+            statusElement.textContent =
+                image.free
+                    ? "رایگان"
+                    : "غیر رایگان";
+
+        }
+
+
+        /* ---------------------------------------------
            DOWNLOAD
-        ================================================= */
+        --------------------------------------------- */
 
         const downloadButton =
             document.getElementById(
@@ -381,9 +675,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 image.image;
 
             downloadButton.download =
-                image.id +
-                "." +
-                image.format.toLowerCase();
+                `${image.id}.${image.format.toLowerCase()}`;
 
             downloadButton.setAttribute(
                 "aria-label",
@@ -393,18 +685,27 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
 
-        /* =================================================
+        /* ---------------------------------------------
            SEO
-        ================================================= */
+        --------------------------------------------- */
 
         updateMetaDescription(
             image.description
         );
 
 
-        /* =================================================
+        /* ---------------------------------------------
+           RELATED
+        --------------------------------------------- */
+
+        await loadRelatedImages(
+            image
+        );
+
+
+        /* ---------------------------------------------
            PAGE READY
-        ================================================= */
+        --------------------------------------------- */
 
         document.body.classList.add(
             "image-page-loaded"
