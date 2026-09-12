@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     /* =====================================================
        PAGE LOAD
@@ -19,12 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       GET CATEGORY
+       ELEMENTS
     ===================================================== */
-
-    const category =
-        window.CATEGORY_DATA?.[categoryId];
-
 
     const title =
         document.getElementById("category-title");
@@ -34,6 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const grid =
         document.getElementById("category-grid");
+
+
+    /* =====================================================
+       CATEGORY DATA
+    ===================================================== */
+
+    const category =
+        window.CATEGORY_DATA?.[categoryId];
 
 
     /* =====================================================
@@ -76,73 +80,263 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       LOAD IMAGES
+       LOADING
     ===================================================== */
 
-    const images =
-        Object.values(
-            window.IMAGE_DATA || {}
-        ).filter(
-            image =>
-                image.category === categoryId
-        );
+    if (grid) {
+
+        grid.innerHTML = `
+            <p class="loading-text">
+                در حال بارگذاری تصاویر...
+            </p>
+        `;
+
+    }
 
 
     /* =====================================================
-       NO IMAGES
+       GITHUB API
     ===================================================== */
 
-    if (images.length === 0) {
+    const REPO =
+        "BRICEWORLD/BRICE-IMAGE";
+
+    const BRANCH =
+        "main";
+
+
+    async function getFolder(path) {
+
+        const url =
+            `https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}`;
+
+        const response =
+            await fetch(url);
+
+        if (!response.ok) {
+            throw new Error(
+                `GitHub API Error: ${response.status}`
+            );
+        }
+
+        return await response.json();
+    }
+
+
+    /* =====================================================
+       IMAGE FILE CHECK
+    ===================================================== */
+
+    function isImage(file) {
+
+        if (file.type !== "file") {
+            return false;
+        }
+
+        return /\.(jpg|jpeg|png|webp|gif)$/i.test(
+            file.name
+        );
+    }
+
+
+    /* =====================================================
+       GET IMAGES
+    ===================================================== */
+
+    async function loadImages() {
+
+        let files = [];
+
+
+        /* ---------------------------------------------
+           NORMAL CATEGORIES
+        --------------------------------------------- */
+
+        if (categoryId !== "profile") {
+
+            files =
+                await getFolder(
+                    `images/${categoryId}`
+                );
+
+        }
+
+
+        /* ---------------------------------------------
+           PROFILE
+        --------------------------------------------- */
+
+        else {
+
+            const girls =
+                await getFolder(
+                    "images/profile/girls"
+                );
+
+            const boys =
+                await getFolder(
+                    "images/profile/boys"
+                );
+
+            files = [
+                ...girls,
+                ...boys
+            ];
+
+        }
+
+
+        /* ---------------------------------------------
+           ONLY IMAGES
+        --------------------------------------------- */
+
+        return files
+            .filter(isImage)
+            .sort((a, b) =>
+                a.name.localeCompare(
+                    b.name,
+                    undefined,
+                    {
+                        numeric: true,
+                        sensitivity: "base"
+                    }
+                )
+            );
+
+    }
+
+
+    /* =====================================================
+       LOAD
+    ===================================================== */
+
+    try {
+
+        const files =
+            await loadImages();
+
+
+        /* =================================================
+           NO IMAGES
+        ================================================= */
+
+        if (files.length === 0) {
+
+            if (grid) {
+
+                grid.innerHTML = `
+                    <p>
+                        هنوز تصویری در این دسته اضافه نشده است.
+                    </p>
+                `;
+
+            }
+
+            return;
+        }
+
+
+        /* =================================================
+           CLEAR GRID
+        ================================================= */
+
+        grid.innerHTML = "";
+
+
+        /* =================================================
+           CREATE CARDS
+        ================================================= */
+
+        files.forEach((file, index) => {
+
+            const card =
+                document.createElement("a");
+
+
+            card.className =
+                "image-card";
+
+
+            /*
+             * Unique ID
+             */
+
+            const imageId =
+                file.path
+                    .replace(/\//g, "-")
+                    .replace(/\.[^/.]+$/, "");
+
+
+            /*
+             * GitHub Pages image URL
+             */
+
+            const imageUrl =
+                `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
+
+
+            /*
+             * Image title
+             */
+
+            const imageTitle =
+                file.name
+                    .replace(/\.[^/.]+$/, "")
+                    .replace(/[-_]/g, " ");
+
+
+            /*
+             * Link
+             */
+
+            card.href =
+                `../image.html?id=${encodeURIComponent(imageId)}`;
+
+
+            /*
+             * Card HTML
+             */
+
+            card.innerHTML = `
+
+                <img
+                    src="${imageUrl}"
+                    alt="${imageTitle} | BRICE IMAGE"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <h3>
+                    ${imageTitle}
+                </h3>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "BRICE IMAGE ERROR:",
+            error
+        );
+
 
         if (grid) {
 
             grid.innerHTML = `
                 <p>
-                    هنوز تصویری در این دسته اضافه نشده است.
+                    خطا در بارگذاری تصاویر.
+                    لطفاً دوباره تلاش کنید.
                 </p>
             `;
 
         }
 
-        return;
     }
-
-
-    /* =====================================================
-       CREATE IMAGE CARDS
-    ===================================================== */
-
-    images.forEach(image => {
-
-        const card =
-            document.createElement("a");
-
-
-        card.href =
-            `image.html?id=${image.id}`;
-
-
-        card.className =
-            "image-card";
-
-
-        card.innerHTML = `
-            
-            <img
-                src="${image.image}"
-                alt="${image.alt || image.title}"
-                loading="lazy"
-            >
-
-            <h3>
-                ${image.title}
-            </h3>
-
-        `;
-
-
-        grid.appendChild(card);
-
-    });
 
 });
