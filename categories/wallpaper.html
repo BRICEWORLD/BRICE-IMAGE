@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>والپیپر | BRICE IMAGE</title>
+
+    <meta name="description"
+          content="مجموعه والپیپرهای باکیفیت و خلاقانه BRICE IMAGE">
+
+    <meta name="keywords"
+          content="BRICE IMAGE, والپیپر, Wallpapers, HD Wallpaper, 4K Wallpaper">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="container">
+
+        <a href="../index.html"
+           class="logo">
+
+            BRICE IMAGE
+
+        </a>
+
+
+        <nav>
+
+            <a href="../index.html">
+                خانه
+            </a>
+
+            <a href="../index.html#categories">
+                دسته‌بندی‌ها
+            </a>
+
+            <a href="../index.html#latest">
+                جدیدترین‌ها
+            </a>
+
+            <a href="../index.html#about">
+                درباره ما
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="category-hero">
+
+    <div class="container">
+
+        <span class="category-label">
+
+            BRICE IMAGE / WALLPAPER
+
+        </span>
+
+
+        <h1>
+
+            والپیپر
+
+        </h1>
+
+
+        <p>
+
+            مجموعه‌ای از والپیپرهای باکیفیت و خاص برای صفحه‌نمایش شما.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="container">
+
+    <div id="category-grid"
+         class="image-grid">
+
+        <p>
+
+            در حال بارگذاری تصاویر...
+
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+
+            © BRICE IMAGE
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+const API_URL =
+    "https://api.github.com/repos/BRICEWORLD/BRICE-IMAGE/contents/images/wallpaper?ref=main";
+
+
+const IMAGE_BASE =
+    "https://briceworld.github.io/BRICE-IMAGE/";
+
+
+async function loadWallpaperImages() {
+
+    const grid =
+        document.getElementById("category-grid");
+
+
+    try {
+
+        const response =
+            await fetch(API_URL);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "GitHub API Error"
+            );
+
+        }
+
+
+        const files =
+            await response.json();
+
+
+        const images =
+            files
+
+                .filter(file =>
+                    /\.(jpg|jpeg|png|webp|gif)$/i
+                    .test(file.name)
+                )
+
+                .sort((a, b) =>
+                    a.name.localeCompare(
+                        b.name,
+                        undefined,
+                        {
+                            numeric: true,
+                            sensitivity: "base"
+                        }
+                    )
+                );
+
+
+        if (!images.length) {
+
+            grid.innerHTML = `
+                <p>
+                    هنوز تصویری در این مجموعه وجود ندارد.
+                </p>
+            `;
+
+            return;
+
+        }
+
+
+        grid.innerHTML = "";
+
+
+        images.forEach(file => {
+
+            const imageId =
+                file.path
+                    .replace(/\//g, "-")
+                    .replace(/\.[^/.]+$/, "");
+
+
+            const imageUrl =
+                IMAGE_BASE + file.path;
+
+
+            const title =
+                file.name
+                    .replace(/\.[^/.]+$/, "")
+                    .replace(/[-_]/g, " ");
+
+
+            const card =
+                document.createElement("a");
+
+
+            card.className =
+                "image-card";
+
+
+            card.href =
+                `../image.html?id=${encodeURIComponent(imageId)}`;
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${imageUrl}"
+                    alt="${title}"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="related-card-info">
+
+                    <h3>
+                        ${title}
+                    </h3>
+
+                    <span>
+                        والپیپر
+                    </span>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Wallpaper Images Error:",
+            error
+        );
+
+
+        grid.innerHTML = `
+
+            <p>
+
+                امکان بارگذاری تصاویر وجود ندارد.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+loadWallpaperImages();
+
+</script>
+
+
+<script src="../script.js"></script>
+
+
+</body>
+
+</html>
