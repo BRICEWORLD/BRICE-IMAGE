@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
     /* =====================================================
        GET IMAGE ID
@@ -12,220 +12,416 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (!imageId) {
-
         showImageError();
-
         return;
     }
 
 
     /* =====================================================
-       GET IMAGE DATA
+       GITHUB CONFIG
     ===================================================== */
 
-    const image = window.IMAGE_DATA?.[imageId];
+    const REPO =
+        "BRICEWORLD/BRICE-IMAGE";
 
-
-    if (!image) {
-
-        showImageError();
-
-        return;
-    }
+    const BRANCH =
+        "main";
 
 
     /* =====================================================
-       PAGE TITLE
+       FIND IMAGE
     ===================================================== */
 
-    document.title =
-        `${image.title} | BRICE IMAGE`;
+    async function findImage() {
+
+        const categories = [
+            "ai",
+            "branding",
+            "hero",
+            "tattoo",
+            "wallpaper"
+        ];
 
 
-    /* =====================================================
-       CATEGORY BADGE
-    ===================================================== */
+        /* ---------------------------------------------
+           NORMAL CATEGORIES
+        --------------------------------------------- */
 
-    const category =
-        document.getElementById("image-category");
+        for (const category of categories) {
 
+            const url =
+                `https://api.github.com/repos/${REPO}/contents/images/${category}?ref=${BRANCH}`;
 
-    if (category) {
+            const response =
+                await fetch(url);
 
-        const categoryText =
-            image.categoryName ||
-            image.category ||
-            "BRICE IMAGE";
+            if (!response.ok) {
+                continue;
+            }
 
-
-        category.textContent =
-            `BRICE IMAGE / ${categoryText}`;
-
-    }
+            const files =
+                await response.json();
 
 
-    /* =====================================================
-       TITLE
-    ===================================================== */
+            const file =
+                files.find(item => {
 
-    const title =
-        document.getElementById("image-title");
+                    const generatedId =
+                        item.path
+                            .replace(/\//g, "-")
+                            .replace(/\.[^/.]+$/, "");
 
-
-    if (title) {
-
-        title.textContent =
-            image.title ||
-            "تصویر";
-
-    }
+                    return generatedId === imageId;
+                });
 
 
-    /* =====================================================
-       DESCRIPTION
-    ===================================================== */
+            if (file) {
 
-    const description =
-        document.getElementById("image-description");
-
-
-    if (description) {
-
-        description.textContent =
-            image.description ||
-            "تصویری خلاقانه از مجموعه BRICE IMAGE.";
-
-    }
-
-
-    /* =====================================================
-       MAIN IMAGE
-    ===================================================== */
-
-    const mainImage =
-        document.getElementById("main-image");
-
-
-    if (mainImage) {
-
-        mainImage.src =
-            image.image;
-
-        mainImage.alt =
-            image.alt ||
-            image.title ||
-            "BRICE IMAGE";
-
-        mainImage.loading =
-            "eager";
-
-        mainImage.decoding =
-            "async";
-
-
-        mainImage.addEventListener(
-            "error",
-            () => {
-
-                mainImage.style.display =
-                    "none";
+                return createImageData(
+                    file,
+                    category
+                );
 
             }
+
+        }
+
+
+        /* ---------------------------------------------
+           PROFILE
+        --------------------------------------------- */
+
+        const profileFolders = [
+            "girls",
+            "boys"
+        ];
+
+
+        for (const folder of profileFolders) {
+
+            const url =
+                `https://api.github.com/repos/${REPO}/contents/images/profile/${folder}?ref=${BRANCH}`;
+
+            const response =
+                await fetch(url);
+
+            if (!response.ok) {
+                continue;
+            }
+
+            const files =
+                await response.json();
+
+
+            const file =
+                files.find(item => {
+
+                    const generatedId =
+                        item.path
+                            .replace(/\//g, "-")
+                            .replace(/\.[^/.]+$/, "");
+
+                    return generatedId === imageId;
+                });
+
+
+            if (file) {
+
+                return createImageData(
+                    file,
+                    "profile"
+                );
+
+            }
+
+        }
+
+
+        return null;
+
+    }
+
+
+    /* =====================================================
+       CREATE IMAGE DATA
+    ===================================================== */
+
+    function createImageData(
+        file,
+        categoryId
+    ) {
+
+        const categoryNames = {
+
+            ai:
+                "تصاویر هوش مصنوعی",
+
+            branding:
+                "برندسازی",
+
+            hero:
+                "تصاویر خلاقانه",
+
+            profile:
+                "تصاویر پروفایل",
+
+            tattoo:
+                "طرح‌های تتو",
+
+            wallpaper:
+                "والپیپر"
+
+        };
+
+
+        const categoryName =
+            categoryNames[categoryId] ||
+            "BRICE IMAGE";
+
+
+        const title =
+            file.name
+                .replace(/\.[^/.]+$/, "")
+                .replace(/[-_]/g, " ");
+
+
+        const imageUrl =
+            `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
+
+
+        return {
+
+            id: imageId,
+
+            category:
+                categoryId,
+
+            categoryName:
+                categoryName,
+
+            title:
+                title,
+
+            description:
+                `تصویری از مجموعه ${categoryName} در BRICE IMAGE.`,
+
+            image:
+                imageUrl,
+
+            alt:
+                `${title} | BRICE IMAGE`,
+
+            format:
+                file.name
+                    .split(".")
+                    .pop()
+                    .toUpperCase()
+
+        };
+
+    }
+
+
+    /* =====================================================
+       LOAD
+    ===================================================== */
+
+    try {
+
+        const image =
+            await findImage();
+
+
+        if (!image) {
+
+            showImageError();
+
+            return;
+        }
+
+
+        /* =================================================
+           PAGE TITLE
+        ================================================= */
+
+        document.title =
+            `${image.title} | BRICE IMAGE`;
+
+
+        /* =================================================
+           CATEGORY
+        ================================================= */
+
+        const category =
+            document.getElementById(
+                "image-category"
+            );
+
+
+        if (category) {
+
+            category.textContent =
+                `BRICE IMAGE / ${image.categoryName}`;
+
+        }
+
+
+        /* =================================================
+           TITLE
+        ================================================= */
+
+        const title =
+            document.getElementById(
+                "image-title"
+            );
+
+
+        if (title) {
+
+            title.textContent =
+                image.title;
+
+        }
+
+
+        /* =================================================
+           DESCRIPTION
+        ================================================= */
+
+        const description =
+            document.getElementById(
+                "image-description"
+            );
+
+
+        if (description) {
+
+            description.textContent =
+                image.description;
+
+        }
+
+
+        /* =================================================
+           MAIN IMAGE
+        ================================================= */
+
+        const mainImage =
+            document.getElementById(
+                "main-image"
+            );
+
+
+        if (mainImage) {
+
+            mainImage.src =
+                image.image;
+
+            mainImage.alt =
+                image.alt;
+
+            mainImage.loading =
+                "eager";
+
+            mainImage.decoding =
+                "async";
+
+        }
+
+
+        /* =================================================
+           CATEGORY INFO
+        ================================================= */
+
+        const infoCategory =
+            document.getElementById(
+                "info-category"
+            );
+
+
+        if (infoCategory) {
+
+            infoCategory.textContent =
+                image.categoryName;
+
+        }
+
+
+        /* =================================================
+           FORMAT
+        ================================================= */
+
+        const formatElement =
+            document.getElementById(
+                "info-format"
+            );
+
+
+        if (formatElement) {
+
+            formatElement.textContent =
+                image.format;
+
+        }
+
+
+        /* =================================================
+           DOWNLOAD
+        ================================================= */
+
+        const downloadButton =
+            document.getElementById(
+                "download-button"
+            );
+
+
+        if (downloadButton) {
+
+            downloadButton.href =
+                image.image;
+
+            downloadButton.download =
+                image.id +
+                "." +
+                image.format.toLowerCase();
+
+            downloadButton.setAttribute(
+                "aria-label",
+                `دانلود ${image.title}`
+            );
+
+        }
+
+
+        /* =================================================
+           SEO
+        ================================================= */
+
+        updateMetaDescription(
+            image.description
+        );
+
+
+        /* =================================================
+           PAGE READY
+        ================================================= */
+
+        document.body.classList.add(
+            "image-page-loaded"
         );
 
     }
 
+    catch (error) {
 
-    /* =====================================================
-       IMAGE CATEGORY INFO
-    ===================================================== */
-
-    const infoCategory =
-        document.getElementById("info-category");
-
-
-    if (infoCategory) {
-
-        infoCategory.textContent =
-            image.categoryName ||
-            image.category ||
-            "-";
-
-    }
-
-
-    /* =====================================================
-       FORMAT
-    ===================================================== */
-
-    const formatElement =
-    document.getElementById("info-format");
-        
-
-
-    if (formatElement) {
-
-        formatElement.textContent =
-            image.format ||
-            "WEBP";
-
-    }
-
-
-    /* =====================================================
-       DOWNLOAD
-    ===================================================== */
-
-    const downloadButton =
-        document.getElementById(
-            "download-button"
+        console.error(
+            "BRICE IMAGE ERROR:",
+            error
         );
 
-
-    if (downloadButton) {
-
-        downloadButton.href =
-            image.image;
-
-        downloadButton.download =
-            `${image.id}.webp`;
-
-        downloadButton.setAttribute(
-            "aria-label",
-            `دانلود ${image.title || "تصویر"}`
-        );
+        showImageError();
 
     }
-
-
-    /* =====================================================
-       SEO
-    ===================================================== */
-
-    updateMetaDescription(
-        image.description ||
-        image.title ||
-        "مشاهده و دانلود تصاویر باکیفیت در BRICE IMAGE."
-    );
-
-
-    /* =====================================================
-       RELATED IMAGES
-    ===================================================== */
-
-    loadRelatedImages(
-        imageId,
-        image
-    );
-
-
-    /* =====================================================
-       PAGE READY
-    ===================================================== */
-
-    document.body.classList.add(
-        "image-page-loaded"
-    );
 
 });
 
@@ -258,196 +454,6 @@ function updateMetaDescription(text) {
 
     meta.content =
         text;
-
-}
-
-
-
-/* =========================================================
-   RELATED IMAGES
-========================================================= */
-
-function loadRelatedImages(
-    currentId,
-    currentImage
-) {
-
-    const grid =
-        document.getElementById(
-            "related-grid"
-        );
-
-
-    if (!grid) {
-
-        return;
-    }
-
-
-    /* =====================================================
-       GET RELATED IMAGES
-    ===================================================== */
-
-    let related =
-        window.BRICE?.getRelatedImages(
-            currentImage,
-            6
-        ) || [];
-
-
-    /* =====================================================
-       FALLBACK
-    ===================================================== */
-
-    if (related.length < 6) {
-
-        const allImages =
-            window.BRICE?.getAllImages() || [];
-
-
-        const others =
-            allImages.filter(image =>
-
-                image.id !== currentId &&
-                !related.some(
-                    item =>
-                        item.id === image.id
-                )
-
-            );
-
-
-        related = [
-            ...related,
-            ...others
-        ];
-
-    }
-
-
-    related =
-        related.slice(0, 6);
-
-
-    /* =====================================================
-       CLEAR
-    ===================================================== */
-
-    grid.innerHTML = "";
-
-
-    /* =====================================================
-       NO RELATED IMAGES
-    ===================================================== */
-
-    if (!related.length) {
-
-        grid.innerHTML = `
-
-            <p class="no-related">
-
-                تصاویر بیشتری از این مجموعه
-                به‌زودی اضافه می‌شود.
-
-            </p>
-
-        `;
-
-        return;
-    }
-
-
-    /* =====================================================
-       CREATE RELATED CARDS
-    ===================================================== */
-
-    related.forEach(image => {
-
-
-        const card =
-            document.createElement("a");
-
-
-        card.className =
-            "image-card";
-
-
-        card.href =
-            `image.html?id=${encodeURIComponent(
-                image.id
-            )}`;
-
-
-        /* =================================================
-           IMAGE
-        ================================================= */
-
-        const img =
-            document.createElement("img");
-
-
-        img.src =
-            image.image;
-
-
-        img.alt =
-            image.alt ||
-            image.title ||
-            "BRICE IMAGE";
-
-
-        img.loading =
-            "lazy";
-
-
-        img.decoding =
-            "async";
-
-
-        /* =================================================
-           CARD CONTENT
-        ================================================= */
-
-        const content =
-            document.createElement("div");
-
-
-        content.className =
-            "related-card-info";
-
-
-        const title =
-            document.createElement("h3");
-
-
-        title.textContent =
-            image.title ||
-            "تصویر";
-
-
-        const category =
-            document.createElement("span");
-
-
-        category.textContent =
-            image.categoryName ||
-            image.category ||
-            "";
-
-
-        content.appendChild(title);
-
-        content.appendChild(category);
-
-
-        card.appendChild(img);
-
-        card.appendChild(content);
-
-
-        grid.appendChild(card);
-
-    });
 
 }
 
