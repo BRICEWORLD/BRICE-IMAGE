@@ -254,20 +254,36 @@ rel="stylesheet">
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const girlsGrid = document.getElementById("girls-grid");
-    const boysGrid = document.getElementById("boys-grid");
+    const girlsGrid =
+        document.getElementById("girls-grid");
+
+    const boysGrid =
+        document.getElementById("boys-grid");
 
 
-    const REPO = "BRICEWORLD/BRICE-IMAGE";
-    const BRANCH = "main";
+    const REPO =
+        "BRICEWORLD/BRICE-IMAGE";
 
+    const BRANCH =
+        "main";
+
+
+    const IMAGE_BASE =
+        "https://briceworld.github.io/BRICE-IMAGE/";
+
+
+    /* =====================================================
+       GET FOLDER FROM GITHUB
+    ===================================================== */
 
     async function getFolder(path) {
 
         const url =
             `https://api.github.com/repos/${REPO}/contents/${path}?ref=${BRANCH}`;
 
-        const response = await fetch(url);
+
+        const response =
+            await fetch(url);
 
 
         if (!response.ok) {
@@ -284,6 +300,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
+
+    /* =====================================================
+       CHECK IMAGE
+    ===================================================== */
+
     function isImage(file) {
 
         return (
@@ -293,6 +314,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }
 
+
+
+    /* =====================================================
+       SORT IMAGES
+    ===================================================== */
 
     function sortImages(files) {
 
@@ -314,10 +340,23 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
-    function createCards(files, grid, gender) {
 
-        if (!grid) return;
+    /* =====================================================
+       CREATE IMAGE CARDS
+    ===================================================== */
 
+    function createCards(
+        files,
+        grid,
+        gender
+    ) {
+
+        if (!grid) {
+            return;
+        }
+
+
+        /* EMPTY */
 
         if (files.length === 0) {
 
@@ -335,7 +374,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         grid.innerHTML = "";
 
 
+        /* CREATE CARDS */
+
         files.forEach(file => {
+
+
+            /* IMAGE ID */
 
             const imageId =
                 file.path
@@ -343,15 +387,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                     .replace(/\.[^/.]+$/, "");
 
 
+
+            /* IMAGE URL */
+
             const imageUrl =
-                `https://briceworld.github.io/BRICE-IMAGE/${file.path}`;
+                IMAGE_BASE + file.path;
 
 
-            const imageNumber =
-                file.name
-                    .replace(/\.[^/.]+$/, "")
-                    .replace(/[^0-9]/g, "");
 
+            /* TITLE */
 
             const genderTitle =
                 gender === "girl"
@@ -359,28 +403,35 @@ document.addEventListener("DOMContentLoaded", async () => {
                     : "پروفایل پسرانه";
 
 
+
+            /* CARD */
+
             const card =
                 document.createElement("a");
 
 
-            card.className = "image-card";
+            card.className =
+                "image-card";
 
 
             card.href =
                 `../image.html?id=${encodeURIComponent(imageId)}`;
 
 
+
+            /* CARD CONTENT */
+
             card.innerHTML = `
 
                 <img
                     src="${imageUrl}"
-                    alt="${genderTitle} شماره ${imageNumber} | BRICE IMAGE"
+                    alt="${genderTitle} | BRICE IMAGE"
                     loading="lazy"
                     decoding="async"
                 >
 
                 <h3>
-                    ${genderTitle} ${imageNumber}
+                    ${genderTitle}
                 </h3>
 
             `;
@@ -393,15 +444,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
+
+    /* =====================================================
+       LOAD ALL PROFILE IMAGES
+    ===================================================== */
+
     try {
 
-        const girls =
-            await getFolder("images/profile/girls");
 
+        /* GIRLS */
+
+        const girls =
+            await getFolder(
+                "images/profile/girls"
+            );
+
+
+        /* BOYS */
 
         const boys =
-            await getFolder("images/profile/boys");
+            await getFolder(
+                "images/profile/boys"
+            );
 
+
+
+        /* SORT */
 
         const girlsImages =
             sortImages(girls);
@@ -411,12 +479,18 @@ document.addEventListener("DOMContentLoaded", async () => {
             sortImages(boys);
 
 
+
+        /* CREATE GIRLS */
+
         createCards(
             girlsImages,
             girlsGrid,
             "girl"
         );
 
+
+
+        /* CREATE BOYS */
 
         createCards(
             boysImages,
@@ -425,7 +499,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
 
 
-    } catch (error) {
+    }
+
+
+    /* =====================================================
+       ERROR
+    ===================================================== */
+
+    catch (error) {
+
 
         console.error(
             "BRICE IMAGE PROFILE ERROR:",
