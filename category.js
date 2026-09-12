@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", async () => {
              */
 
             card.href =
-                `../image.html?id=${encodeURIComponent(imageId)}`;
+    `image.html?id=${encodeURIComponent(imageId)}`;
 
 
             /*
