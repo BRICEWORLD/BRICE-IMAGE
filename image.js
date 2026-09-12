@@ -304,196 +304,163 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }
 
+async function loadRelatedImages(currentImage) {
 
-    /* =====================================================
-       LOAD RELATED IMAGES
-    ===================================================== */
+    const grid =
+        document.getElementById("related-grid");
 
-    async function loadRelatedImages(
-        currentImage
-    ) {
+    if (!grid) {
+        return;
+    }
 
-        const grid =
-            document.getElementById(
-                "related-grid"
-            );
+    try {
 
+        let files = [];
 
-        if (!grid) {
+        /* =============================================
+           GET CATEGORY FILES
+        ============================================= */
 
-            return;
+        if (currentImage.category === "profile") {
 
-        }
+            const girls =
+                await getFolder("images/profile/girls");
 
+            const boys =
+                await getFolder("images/profile/boys");
 
-        try {
+            files = [
+                ...girls,
+                ...boys
+            ];
 
-            let files = [];
+        } else {
 
-
-            /* -----------------------------------------
-               PROFILE
-            ----------------------------------------- */
-
-            if (
-                currentImage.category ===
-                "profile"
-            ) {
-
-                const girls =
-                    await getFolder(
-                        "images/profile/girls"
-                    );
-
-
-                const boys =
-                    await getFolder(
-                        "images/profile/boys"
-                    );
-
-
-                files = [
-                    ...girls,
-                    ...boys
-                ];
-
-            }
-
-
-            /* -----------------------------------------
-               OTHER CATEGORIES
-            ----------------------------------------- */
-
-            else {
-
-                files =
-                    await getFolder(
-                        `images/${currentImage.category}`
-                    );
-
-            }
-
-
-            /* -----------------------------------------
-               FILTER
-            ----------------------------------------- */
-
-            const images =
-                files
-                    .filter(isImage)
-                    .map(file =>
-                        createImageData(
-                            file,
-                            currentImage.category
-                        )
-                    )
-                    .filter(image =>
-                        image.id !== currentImage.id
-                    )
-                    .slice(0, 6);
-
-
-            /* -----------------------------------------
-               NO RELATED
-            ----------------------------------------- */
-
-            if (!images.length) {
-
-                grid.innerHTML = `
-
-                    <p class="no-related">
-
-                        تصاویر بیشتری از این مجموعه
-                        به‌زودی اضافه می‌شود.
-
-                    </p>
-
-                `;
-
-                return;
-
-            }
-
-
-            /* -----------------------------------------
-               CLEAR
-            ----------------------------------------- */
-
-            grid.innerHTML = "";
-
-
-            /* -----------------------------------------
-               CREATE CARDS
-            ----------------------------------------- */
-
-            images.forEach(image => {
-
-                const card =
-                    document.createElement("a");
-
-
-                card.className =
-                    "image-card";
-
-
-                card.href =
-                    `image.html?id=${encodeURIComponent(
-                        image.id
-                    )}`;
-
-
-                card.innerHTML = `
-
-                    <img
-                        src="${image.image}"
-                        alt="${image.alt}"
-                        loading="lazy"
-                        decoding="async"
-                    >
-
-                    <div class="related-card-info">
-
-                        <h3>
-                            ${image.title}
-                        </h3>
-
-                        <span>
-                            ${image.categoryName}
-                        </span>
-
-                    </div>
-
-                `;
-
-
-                grid.appendChild(card);
-
-            });
+            files =
+                await getFolder(
+                    `images/${currentImage.category}`
+                );
 
         }
 
-        catch (error) {
 
-            console.error(
-                "Related Images Error:",
-                error
-            );
+        /* =============================================
+           FILTER + SORT
+        ============================================= */
 
+        const related =
+            files
+                .filter(isImage)
+                .sort((a, b) =>
+                    a.name.localeCompare(
+                        b.name,
+                        undefined,
+                        {
+                            numeric: true,
+                            sensitivity: "base"
+                        }
+                    )
+                )
+                .map(file =>
+                    createImageData(
+                        file,
+                        currentImage.category
+                    )
+                )
+                .filter(image =>
+                    image.id !== currentImage.id
+                )
+                .slice(0, 6);
+
+
+        /* =============================================
+           NO RELATED
+        ============================================= */
+
+        if (!related.length) {
 
             grid.innerHTML = `
-
                 <p class="no-related">
-
-                    امکان بارگذاری تصاویر مشابه وجود ندارد.
-
+                    تصاویر بیشتری از این مجموعه
+                    به‌زودی اضافه می‌شود.
                 </p>
+            `;
+
+            return;
+        }
+
+
+        /* =============================================
+           CLEAR
+        ============================================= */
+
+        grid.innerHTML = "";
+
+
+        /* =============================================
+           CREATE CARDS
+        ============================================= */
+
+        related.forEach(image => {
+
+            const card =
+                document.createElement("a");
+
+            card.className =
+                "image-card";
+
+            card.href =
+                `image.html?id=${encodeURIComponent(
+                    image.id
+                )}`;
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${image.image}"
+                    alt="${image.alt}"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="related-card-info">
+
+                    <h3>
+                        ${image.title}
+                    </h3>
+
+                    <span>
+                        ${image.categoryName}
+                    </span>
+
+                </div>
 
             `;
 
-        }
+            grid.appendChild(card);
+
+        });
 
     }
 
+    catch (error) {
+
+        console.error(
+            "Related Images Error:",
+            error
+        );
+
+        grid.innerHTML = `
+            <p class="no-related">
+                امکان بارگذاری تصاویر مشابه وجود ندارد.
+            </p>
+        `;
+
+    }
+
+}
+    
 
     /* =====================================================
        LOAD MAIN IMAGE
