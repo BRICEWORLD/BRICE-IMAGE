@@ -39,10 +39,6 @@ rel="stylesheet">
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header class="site-header">
 
     <div class="container">
@@ -84,10 +80,6 @@ rel="stylesheet">
 
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="category-hero">
 
     <div class="container">
@@ -113,16 +105,8 @@ rel="stylesheet">
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main>
 
-
-<!-- =====================================================
-     GIRLS
-===================================================== -->
 
 <section class="gallery-section">
 
@@ -156,10 +140,6 @@ rel="stylesheet">
 </section>
 
 
-
-<!-- =====================================================
-     BOYS
-===================================================== -->
 
 <section class="gallery-section">
 
@@ -196,10 +176,6 @@ rel="stylesheet">
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
 
 <footer>
 
@@ -246,10 +222,6 @@ rel="stylesheet">
 
 
 
-<!-- =====================================================
-     DYNAMIC PROFILE LOADER
-===================================================== -->
-
 <script>
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -271,10 +243,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const IMAGE_BASE =
         "https://briceworld.github.io/BRICE-IMAGE/";
 
-
-    /* =====================================================
-       GET FOLDER FROM GITHUB
-    ===================================================== */
 
     async function getFolder(path) {
 
@@ -301,10 +269,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-    /* =====================================================
-       CHECK IMAGE
-    ===================================================== */
-
     function isImage(file) {
 
         return (
@@ -315,10 +279,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
-
-    /* =====================================================
-       SORT IMAGES
-    ===================================================== */
 
     function sortImages(files) {
 
@@ -341,10 +301,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-    /* =====================================================
-       CREATE IMAGE CARDS
-    ===================================================== */
-
     function createCards(
         files,
         grid,
@@ -355,8 +311,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-
-        /* EMPTY */
 
         if (files.length === 0) {
 
@@ -374,12 +328,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         grid.innerHTML = "";
 
 
-        /* CREATE CARDS */
-
         files.forEach(file => {
 
-
-            /* IMAGE ID */
 
             const imageId =
                 file.path
@@ -388,14 +338,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-            /* IMAGE URL */
-
             const imageUrl =
                 IMAGE_BASE + file.path;
 
 
-
-            /* TITLE */
 
             const genderTitle =
                 gender === "girl"
@@ -403,8 +349,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     : "پروفایل پسرانه";
 
 
-
-            /* CARD */
 
             const card =
                 document.createElement("a");
@@ -419,8 +363,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-            /* CARD CONTENT */
-
             card.innerHTML = `
 
                 <img
@@ -429,10 +371,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     loading="lazy"
                     decoding="async"
                 >
-
-                <h3>
-                    ${genderTitle}
-                </h3>
 
             `;
 
@@ -445,14 +383,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-    /* =====================================================
-       LOAD ALL PROFILE IMAGES
-    ===================================================== */
-
     try {
 
-
-        /* GIRLS */
 
         const girls =
             await getFolder(
@@ -460,16 +392,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
 
-        /* BOYS */
-
         const boys =
             await getFolder(
                 "images/profile/boys"
             );
 
 
-
-        /* SORT */
 
         const girlsImages =
             sortImages(girls);
@@ -480,8 +408,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-        /* CREATE GIRLS */
-
         createCards(
             girlsImages,
             girlsGrid,
@@ -489,8 +415,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
 
 
-
-        /* CREATE BOYS */
 
         createCards(
             boysImages,
@@ -501,10 +425,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     }
 
-
-    /* =====================================================
-       ERROR
-    ===================================================== */
 
     catch (error) {
 
