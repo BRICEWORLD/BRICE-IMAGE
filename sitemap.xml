@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/category.html?id=ai</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/category.html?id=profile</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/category.html?id=tattoo</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/category.html?id=wallpaper</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/category.html?id=branding</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/category.html?id=hero</loc>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-001.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-002</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-002.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-003</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-003.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-004</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-004.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-005</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-005.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-006</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-006.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-007</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-007.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-008</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-008.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-009</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-009.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-ai-ai-010</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/ai/ai-010.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-001.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-002</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-002.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-003</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-003.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-004</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-004.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-005</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-005.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-006</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-006.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-007</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-007.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-008</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-008.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-branding-branding-009</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/branding/branding-009.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-001.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-002</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-002.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-003</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-003.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-004</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-004.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-005</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-005.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-006</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-006.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-007</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-007.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-008</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-008.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-009</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-009.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-010</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-010.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-011</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-011.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-012</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-012.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-013</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-013.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-014</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-014.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-015</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-015.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-016</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-016.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-017</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-017.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-hero-hero-018</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/hero/hero-018.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-001.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-002</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-002.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-003</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-003.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-004</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-004.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-005</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-005.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-006</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-006.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-007</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-007.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-008</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-008.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-009</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-009.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-boys-boy-010</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/boys/boy-010.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B2%DB%B1%DB%B1</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B2%DB%B1%DB%B1.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B2%DB%B2%DB%B7</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B2%DB%B2%DB%B7.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B2%DB%B4%DB%B4</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B2%DB%B4%DB%B4.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B0%DB%B0</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B0%DB%B0.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B1%DB%B3</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B1%DB%B3.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B2%DB%B4</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B2%DB%B4.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B3%DB%B5</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B3%DB%B5.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B4%DB%B5</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B3%DB%B3%DB%B4%DB%B5.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-001.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-001.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-002</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-002.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-003</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-003.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-004</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-004.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-006</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-006.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-007</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-007.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-008</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-008.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-009</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-009.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-profile-girls-girl-010</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/profile/girls/girl-010.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-001.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-002</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-002.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-003</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-003.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-004</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-004.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-005</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-005.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-006</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-006.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-007</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-007.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-008</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-008.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-009</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-009.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-010</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-010.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-011</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-011.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-012</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-012.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-013</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-013.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-014</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-014.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-015</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-015.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-tattoo-tattoo-016</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/tattoo/tattoo-016.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B5%DB%B9%DB%B4%DB%B0</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B1%DB%B5%DB%B9%DB%B4%DB%B0.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B0%DB%B1%DB%B9</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B0%DB%B1%DB%B9.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B0%DB%B3%DB%B8</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B0%DB%B3%DB%B8.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B0%DB%B5%DB%B2</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B0%DB%B5%DB%B2.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B1%DB%B3%DB%B0</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B1%DB%B3%DB%B0.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B1%DB%B5%DB%B5</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B1%DB%B5%DB%B5.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B2%DB%B1%DB%B5</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B2%DB%B1%DB%B5.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B2%DB%B3%DB%B2</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B2%DB%B3%DB%B2.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B3%DB%B0%DB%B2</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B3%DB%B0%DB%B2.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B3%DB%B2%DB%B8</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B3%DB%B2%DB%B8.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B3%DB%B4%DB%B9</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B3%DB%B4%DB%B9.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B4%DB%B0%DB%B7</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/IMG_%DB%B2%DB%B0%DB%B2%DB%B6%DB%B0%DB%B9%DB%B1%DB%B5_%DB%B0%DB%B2%DB%B0%DB%B4%DB%B0%DB%B7.jpg</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://briceworld.github.io/BRICE-IMAGE/image.html?id=images-wallpaper-wallpaper-001</loc>
+    <image:image>
+      <image:loc>https://briceworld.github.io/BRICE-IMAGE/images/wallpaper/wallpaper-001.jpg</image:loc>
+    </image:image>
+  </url>
+</urlset>
